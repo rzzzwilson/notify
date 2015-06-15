@@ -28,7 +28,7 @@ notify.notify('''Sorry, can't find Python, you'll have to install it.''',
 
 The notify() function has the signature:
 ```python
-notify(msg, submsg='', html=_HTMLTemplate)
+notify(msg, submsg='', html='')
 ```
 The **msg** and **submsg** parameters are the error message(s).  The **html**
 parameter allows the user to change the page HTML displayed in the browser.

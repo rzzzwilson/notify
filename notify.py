@@ -14,31 +14,26 @@ import tempfile
 import webbrowser
 
 
-# default temporary directory
-_TmpDir = '/tmp'
-
-# the HTML template
-_HTMLTemplate = '''<!DOCTYPE html>
-<html>
-    <body>
-        <center>
-            <h2>{msg}</h2>
-            <h4>{submsg}</h4>
-        </center>
-    </body>
-</html>
-'''
-
-
-def notify(msg, submsg='', html=_HTMLTemplate):
+def notify(msg, submsg='', html=''):
     """Tell the user something.
     
     msg     the topline message
     submsg  optional submessage
     html    optional replcement HTML page text, formatted so:
                 html.format(msg=msg, submsg=submsg)
-            
     """
+
+    # handle an HTML change
+    if not html:
+        html = '''<!DOCTYPE html>                                               
+<html>                                                                           
+    <body>                                                                       
+        <center>                                                                 
+            <h2>{msg}</h2>                                                       
+            <h4>{submsg}</h4>                                                    
+        </center>                                                                
+    </body>                                                                      
+</html>'''       
 
     # create a temporary *.HTML file containing the user message
     (fd, filename) = tempfile.mkstemp(suffix='.html', prefix='notify_')
