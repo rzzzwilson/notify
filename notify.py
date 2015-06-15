@@ -6,6 +6,8 @@ import a GUI module and can't.  At this point it wants to tell the user what
 is wrong and maybe how to correct the problem.  But in some environments just
 printing something to stderr doesn't work as there is no terminal to write
 the text to.
+
+This code tries to use the web browser to display error text.
 """
 
 import os
@@ -15,11 +17,11 @@ import webbrowser
 
 
 def notify(msg, submsg='', html=''):
-    """Tell the user something.
+    """Tell the user something using the web browser.
     
     msg     the topline message
     submsg  optional submessage
-    html    optional replcement HTML page text, formatted so:
+    html    optional replacement HTML page text, formatted so:
                 html.format(msg=msg, submsg=submsg)
     """
 
