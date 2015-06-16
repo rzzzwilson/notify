@@ -1,4 +1,4 @@
-#!/usr/bin/python 
+#!/usr/bin/python
 
 """
 A small module to display *something* when a python graphics program tries to
@@ -15,40 +15,64 @@ import time
 import tempfile
 import webbrowser
 
+__version__ = '0.2'
+
 
 def notify(msg, submsg='', html=''):
     """Tell the user something using the web browser.
-    
+
     msg     the topline message
     submsg  optional submessage
     html    optional replacement HTML page text, formatted so:
                 html.format(msg=msg, submsg=submsg)
     """
 
-    # handle an HTML change
+    # create the user content
     if not html:
-        html = '''<!DOCTYPE html>                                               
-<html>                                                                           
-    <body>                                                                       
-        <center>                                                                 
-            <h2>{msg}</h2>                                                       
-            <h4>{submsg}</h4>                                                    
-        </center>                                                                
-    </body>                                                                      
-</html>'''       
+        html = '''<h2>{msg}</h2> <h4>{submsg}</h4>'''
+    html = html.format(msg=msg, submsg=submsg)
+
+    # construct the page contents
+    body_top = '''<!DOCTYPE html>
+<html>
+    <title>ERROR</title>
+    <style>
+        div {
+             border-radius: 5px 20px;
+             background: #99FFEE;
+             padding: 15px 30px 2px 30px;
+             width: 800px;
+            }
+    </style>
+    <body>
+        <div>
+            <center>
+'''
+
+    body_bot = '''
+            </center>
+            <p align="right"><small>{progname} v{version}</small></p>
+        </div>
+    </body>
+</html>'''.format(progname=notify.__name__, version=__version__)
 
     # create a temporary *.HTML file containing the user message
     (fd, filename) = tempfile.mkstemp(suffix='.html', prefix='notify_')
     with open(filename, 'wb') as fd:
-        fd.write(html.format(msg=msg, submsg=submsg))
+        fd.write(body_top + html + body_bot)
 
     # display the message
-    webbrowser.open('file:///' + filename, new=1)
+    webbrowser.open_new('file:///' + filename)
 
     # remove the temporary file
     time.sleep(2)       # FUDGE: give browser time to load the file
     os.remove(filename)
 
+
 if __name__ == '__main__':
-    notify('''Sorry, can't find wxPython, you'll have to install it.''',
-            '''You can get it <a href="http://www.wxpython.org/download.php">here</a>''')
+    try:
+        import not_found
+    except ImportError:
+        notify('''Sorry, can't find the 'not_found' module, '''
+                '''you'll have to install it.''',
+                '''You can get it <a href="http://www.example.com">here</a>''')
