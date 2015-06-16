@@ -15,8 +15,8 @@ sudo apt-get install python-tk
 I believe that is also true under Mac OSX.
 
 This current solution has a better chance of working on more platforms.
-It definitely works under OSX.  It _should_ work under Linux.  Maybe it
-works under Windows.  I'll test all those eventually.
+It definitely works under OSX.  It works under Ubuntu.  Maybe it
+works under other Linuxes and Windows.  I'll test all those eventually.
 
 To use it:
 ```python
@@ -34,13 +34,13 @@ The **msg** and **submsg** parameters are the error message(s).  The **html**
 parameter allows the user to change the page HTML displayed in the browser.
 The default HTML is:
 ```html
-<!DOCTYPE html>                                               
-<html>                                                                           
-    <body>                                                                       
-        <center>                                                                 
-            <h2>{msg}</h2>                                                       
-            <h4>{submsg}</h4>                                                    
-        </center>                                                                
-    </body>                                                                      
-</html>                                                                          
+<center>
+    <h2>{msg}</h2>                                                       
+    <h4>{submsg}</h4>                                                    
+</center>
 ```
+
+You may substitute any HTML you prefer remembering that the supplied HTML may
+use the **msg** and **submsg** slots for formatting and no others.  Also
+remember that the supplied HTML is embedded inside a ```<div>``` in the HTML
+body.
