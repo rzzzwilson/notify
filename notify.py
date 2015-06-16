@@ -29,7 +29,7 @@ def notify(msg, submsg='', html=''):
 
     # create the user content
     if not html:
-        html = '''<h2>{msg}</h2> <h4>{submsg}</h4>'''
+        html = '''<center><h2>{msg}</h2><h4>{submsg}</h4></center>'''
     html = html.format(msg=msg, submsg=submsg)
 
     # construct the page contents
@@ -43,15 +43,19 @@ def notify(msg, submsg='', html=''):
              padding: 15px 30px 2px 30px;
              width: 800px;
             }
+        footer {
+                   font-size: 10px;
+               }
     </style>
     <body>
         <div>
-            <center>
 '''
 
+#            <p align="right"><small>{progname} v{version}</small></p>
     body_bot = '''
-            </center>
-            <p align="right"><small>{progname} v{version}</small></p>
+            <footer>
+            <p align="right"><font size="1">{progname} v{version}</font></p>
+            </footer>
         </div>
     </body>
 </html>'''.format(progname=notify.__name__, version=__version__)
