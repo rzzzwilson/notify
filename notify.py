@@ -44,7 +44,7 @@ def notify(msg, submsg='', html=''):
              width: 800px;
             }
         footer {
-                   font-size: 10px;
+                   font-size: 5px;
                }
     </style>
     <body>
