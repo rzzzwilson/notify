@@ -1,5 +1,5 @@
 # notify
-A (hopefully) cross-platform method of notifying some sort of problem.
+A (hopefully) cross-platform method of notifying some sort of problem for python.
 
 If you write a python GUI program that starts from a desktop icon or
 a filemanager item you have a problem if the program cannot properly
