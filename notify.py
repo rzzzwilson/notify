@@ -18,7 +18,7 @@ import webbrowser
 __version__ = '0.3'
 
 
-def notify(msg, submsg=None, html=None, header=None):
+def notify(msg, submsg=None, html=None, header=None, colour=None):
     """Tell the user something using the web browser.
 
     msg     the topline message
@@ -26,6 +26,7 @@ def notify(msg, submsg=None, html=None, header=None):
     html    optional replacement HTML page text, formatted so:
                 html.format(msg=msg, submsg=submsg)
     header  optional browser tab title text (default: 'ERROR')
+    colour  optional colour string, default is '#9988ee'
     """
 
     # handle optional parameters
@@ -38,6 +39,9 @@ def notify(msg, submsg=None, html=None, header=None):
     if not header:
         header = 'ERROR'
 
+    if not colour:
+        colour = '#ffb8b8'
+
     # construct the page contents
     html = html.format(msg=msg, submsg=submsg)
 
@@ -47,7 +51,7 @@ def notify(msg, submsg=None, html=None, header=None):
     <style>
         div {lcurly}
              border-radius: 5px 20px;
-             background: #aa9999;
+             background: {colour};
              padding: 15px 30px 2px 30px;
              width: 800px;
             {rcurly}
@@ -57,7 +61,7 @@ def notify(msg, submsg=None, html=None, header=None):
     </style>
     <body>
         <div>
-'''.format(header=header, lcurly='{', rcurly='}') 
+'''.format(header=header, lcurly='{', rcurly='}', colour=colour) 
 
     body_bot = '''
             <footer>
@@ -90,4 +94,5 @@ if __name__ == '__main__':
         notify(msg='''Sorry, can't find the 'not_found' module, '''
                    '''you'll have to install it.''',
                submsg='''You can get it <a href="http://www.example.com">here</a>''',
-               header='WARNING', html='<h2>{msg}</h2><h4>{submsg}</h4>')
+               header='WARNING', html='<h2>{msg}</h2><h4>{submsg}</h4>',
+               colour='#b8b8ff')

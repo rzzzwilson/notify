@@ -28,7 +28,7 @@ notify.notify('''Sorry, can't find Python, you'll have to install it.''',
 
 The notify() function has the signature:
 ```python
-notify(msg, submsg=None, html=None, header=None)
+notify(msg, submsg=None, html=None, header=None, colour=None)
 ```
 The **msg** and **submsg** parameters are the error message(s).  The **html**
 parameter allows the user to change the page HTML displayed in the browser.
@@ -46,5 +46,7 @@ remember that the supplied HTML is embedded inside a ```<div>``` in the HTML
 body.
 
 The **header** parameter allows the user to change the tab header text.
-The default is "ERROR".
+The default header is "ERROR".
 
+The **colour** parameter lets the user set the colour of the message box.
+The default colour is "#ffb8b8".
