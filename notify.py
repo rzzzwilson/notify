@@ -15,10 +15,10 @@ import time
 import tempfile
 import webbrowser
 
-__version__ = '0.2'
+__version__ = '0.3'
 
 
-def notify(msg, submsg='', html=''):
+def notify(msg, submsg='', html='', header=None):
     """Tell the user something using the web browser.
 
     msg     the topline message
@@ -32,26 +32,28 @@ def notify(msg, submsg='', html=''):
         html = '''<center><h2>{msg}</h2><h4>{submsg}</h4></center>'''
     html = html.format(msg=msg, submsg=submsg)
 
+    if not header:
+        header = 'ERROR'
+
     # construct the page contents
     body_top = '''<!DOCTYPE html>
 <html>
-    <title>ERROR</title>
+    <title>{header}</title>
     <style>
-        div {
+        div {lcurly}
              border-radius: 5px 20px;
              background: #99FFEE;
              padding: 15px 30px 2px 30px;
              width: 800px;
-            }
-        footer {
+            {rcurly}
+        footer {lcurly}
                    font-size: 5px;
-               }
+               {rcurly}
     </style>
     <body>
         <div>
-'''
+'''.format(header=header, lcurly='{', rcurly='}') 
 
-#            <p align="right"><small>{progname} v{version}</small></p>
     body_bot = '''
             <footer>
             <p align="right"><font size="1">{progname} v{version}</font></p>
@@ -70,7 +72,7 @@ def notify(msg, submsg='', html=''):
 
     # remove the temporary file
     time.sleep(2)       # FUDGE: give browser time to load the file
-    os.remove(filename)
+    os.remove(filename) #        before we delete it!
 
 
 if __name__ == '__main__':
@@ -79,4 +81,5 @@ if __name__ == '__main__':
     except ImportError:
         notify('''Sorry, can't find the 'not_found' module, '''
                 '''you'll have to install it.''',
-                '''You can get it <a href="http://www.example.com">here</a>''')
+                '''You can get it <a href="http://www.example.com">here</a>''',
+                header='WARNING', html='<h2>{msg}</h2><h4>{submsg}</h4>')
