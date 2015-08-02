@@ -18,31 +18,36 @@ import webbrowser
 __version__ = '0.3'
 
 
-def notify(msg, submsg='', html='', header=None):
+def notify(msg, submsg=None, html=None, header=None):
     """Tell the user something using the web browser.
 
     msg     the topline message
     submsg  optional submessage
     html    optional replacement HTML page text, formatted so:
                 html.format(msg=msg, submsg=submsg)
+    header  optional browser tab title text (default: 'ERROR')
     """
 
-    # create the user content
+    # handle optional parameters
+    if not submsg:
+        submsg = ''
+
     if not html:
         html = '''<center><h2>{msg}</h2><h4>{submsg}</h4></center>'''
-    html = html.format(msg=msg, submsg=submsg)
 
     if not header:
         header = 'ERROR'
 
     # construct the page contents
+    html = html.format(msg=msg, submsg=submsg)
+
     body_top = '''<!DOCTYPE html>
 <html>
     <title>{header}</title>
     <style>
         div {lcurly}
              border-radius: 5px 20px;
-             background: #99FFEE;
+             background: #aa9999;
              padding: 15px 30px 2px 30px;
              width: 800px;
             {rcurly}
@@ -79,7 +84,10 @@ if __name__ == '__main__':
     try:
         import not_found
     except ImportError:
-        notify('''Sorry, can't find the 'not_found' module, '''
-                '''you'll have to install it.''',
-                '''You can get it <a href="http://www.example.com">here</a>''',
-                header='WARNING', html='<h2>{msg}</h2><h4>{submsg}</h4>')
+        notify(msg='''Sorry, can't find the 'not_found' module, '''
+                   '''you'll have to install it.''')
+
+        notify(msg='''Sorry, can't find the 'not_found' module, '''
+                   '''you'll have to install it.''',
+               submsg='''You can get it <a href="http://www.example.com">here</a>''',
+               header='WARNING', html='<h2>{msg}</h2><h4>{submsg}</h4>')
