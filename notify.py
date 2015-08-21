@@ -2,7 +2,7 @@
 
 """
 A small module to display *something* when a python graphics program tries to
-import a GUI module and can't.  At this point it wants to tell the user what
+import a GUI module and can't.  At this point you want to tell the user what
 is wrong and maybe how to correct the problem.  But in some environments just
 printing something to stderr doesn't work as there is no terminal to write
 the text to.
