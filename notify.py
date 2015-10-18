@@ -94,5 +94,5 @@ if __name__ == '__main__':
         notify(msg='''Sorry, can't find the 'not_found' module, '''
                    '''you'll have to install it.''',
                submsg='''You can get it <a href="http://www.example.com">here</a>''',
-               header='WARNING', html='<h2>{msg}</h2><h4>{submsg}</h4>',
+               header='WARNING', html='<h1>{msg}</h1><h6>{submsg}</h6>',
                colour='#b8b8ff')
