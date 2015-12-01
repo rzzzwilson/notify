@@ -51,7 +51,7 @@ The default HTML is:
 
 You may substitute any HTML you prefer remembering that the supplied HTML may
 use the **msg** and **submsg** slots for formatting and no others.  Also
-remember that the supplied HTML is embedded inside a ```<div>``` in the HTML
+remember that the supplied HTML is embedded inside a ``<div>`` in the HTML
 body.
 
 The **header** parameter allows the user to change the tab header text.
