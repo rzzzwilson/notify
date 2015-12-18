@@ -72,8 +72,10 @@ If you execute:
 you will see these two pages appear in the default browser:
 
 An ERROR page:
+
 .. image:: ERROR.png
 
 And a WARNING page:
+
 .. image:: WARNING.png
 
