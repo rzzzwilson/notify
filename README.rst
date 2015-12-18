@@ -59,3 +59,19 @@ The default header is "ERROR".
 
 The **colour** parameter lets the user set the colour of the message box.
 The default colour is "#ffb8b8".
+
+Testing
+-------
+
+If you execute:
+
+::
+
+    python notify.py
+
+you will see these two pages appear in the default browser:
+
+.. image:: WARNING.png
+
+.. image:: ERROR.png
+
