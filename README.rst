@@ -69,13 +69,13 @@ If you execute:
 
     python notify.py
 
-you will see these two pages appear in the default browser:
+you will see these two tabs appear in the default browser:
 
-An ERROR page:
+An ERROR tab:
 
 .. image:: ERROR.png
 
-And a WARNING page:
+And a WARNING tab:
 
 .. image:: WARNING.png
 
