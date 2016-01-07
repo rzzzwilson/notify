@@ -50,10 +50,10 @@ def notify(msg, submsg=None, html=None, header=None, colour=None):
     <title>{header}</title>
     <style>
         div {lcurly}
-             border-radius: 5px 20px;
-             background: {colour};
-             padding: 15px 30px 2px 30px;
-             width: 800px;
+                border-radius: 5px 20px;
+                background: {colour};
+                padding: 15px 30px 2px 30px;
+                width: 800px;
             {rcurly}
         footer {lcurly}
                    font-size: 5px;
@@ -65,7 +65,7 @@ def notify(msg, submsg=None, html=None, header=None, colour=None):
 
     body_bot = '''
             <footer>
-            <p align="right"><font size="1">{progname} v{version}</font></p>
+                <p align="right"><font size="1">{progname} v{version}</font></p>
             </footer>
         </div>
     </body>
