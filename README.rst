@@ -6,8 +6,9 @@ python.
 
 If you write a python GUI program that starts from a desktop icon or
 a filemanager item you have a problem if the program cannot properly
-initialise the GUI environment.  You can't **print** anything as there
-is no terminal to show the error text.
+initialise the GUI environment.  You can't raise any sort of dialog to
+warn the user and you can't **print** anything as there is no terminal to
+show the error text.
 
 My first attempt to solve this problem used the Tkinter module.  This is
 part of python, so should always be there, right?  Ha!  Under Ubuntu the
@@ -17,7 +18,7 @@ Tkinter module is not installed automatically, you have to do:
 
     sudo apt-get install python-tk
 
-I believe that is also true under Mac OSX.
+I believe that is also the case under Mac OSX.
 
 This current solution has a better chance of working on more platforms.
 It definitely works under OSX.  It works under Ubuntu.  Maybe it
@@ -29,7 +30,7 @@ To use it:
 
     import notify
     
-    notify.notify('''Sorry, can't find Python, you'll have to install it.''',         
+    notify.notify('''Sorry, can't find WxPython, you'll have to install it.''',         
                   '''You can get it <a href="http://www.wxpython.org/download.php">here</a>''')
 
 The notify() function has the signature:
