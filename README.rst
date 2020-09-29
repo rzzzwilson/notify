@@ -8,7 +8,9 @@ If you write a python GUI program that starts from a desktop icon or
 a filemanager item you have a problem if the program cannot properly
 initialise the GUI environment.  You can't raise any sort of dialog to
 warn the user and you can't **print** anything as there is no terminal to
-show the error text.
+show the error text.  This often shows up in the /r/learnpython subreddit
+as a problem where "I double-click, a windows flashes up and is immediately
+gone" problem.  There should be some cross-platform way of indicating errors.
 
 My first attempt to solve this problem
 `used the Tkinter module <https://github.com/rzzzwilson/notify/blob/master/tkinter_notify.py>`_.

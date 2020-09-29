@@ -15,7 +15,7 @@ import time
 import tempfile
 import webbrowser
 
-__version__ = '0.3'
+__version__ = '0.4'
 
 
 def notify(msg, submsg=None, html=None, header=None, colour=None):
