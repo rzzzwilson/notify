@@ -67,11 +67,12 @@ The default colour is "#ffb8b8".
 Testing
 -------
 
-If you execute:
+If you execute either of these commands:
 
 ::
 
     python notify.py
+    python3 notify.py
 
 you will see these two tabs appear in the default browser:
 
