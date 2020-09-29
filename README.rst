@@ -11,7 +11,7 @@ warn the user and you can't **print** anything as there is no terminal to
 show the error text.
 
 My first attempt to solve this problem
-`used the Tkinter module <https://github.com/rzzzwilson/notify/tkinter_notify.py>`_.
+`used the Tkinter module <https://github.com/rzzzwilson/notify/blob/master/tkinter_notify.py>`_.
 This is part of python, so should always be there, right?  Ha!  Under Ubuntu the
 Tkinter module is not installed automatically, you have to do:
 
