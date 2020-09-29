@@ -73,7 +73,7 @@ def notify(msg, submsg=None, html=None, header=None, colour=None):
 
     # create a temporary *.HTML file containing the user message
     (fd, filename) = tempfile.mkstemp(suffix='.html', prefix='notify_')
-    with open(filename, 'wb') as fd:
+    with open(filename, 'w') as fd:
         fd.write(body_top + html + body_bot)
 
     # display the message

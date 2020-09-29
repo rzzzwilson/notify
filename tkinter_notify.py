@@ -5,9 +5,11 @@ Usage: notify(title='Test', message='Test message')
 """
 
 try:
+    # try importing python3 version first
     from Tkinter import Tk
     import tkMessageBox as messagebox
 except ImportError:
+    # if that failed, try python2 version
     from tkinter import Tk, messagebox
 
 def notify(title='', message=''):
